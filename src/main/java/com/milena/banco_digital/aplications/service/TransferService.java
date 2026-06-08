@@ -27,6 +27,9 @@ public class TransferService {
     @Transactional
     public TransferResponse transfer(TransferRequest request) {
 
+        if (request.sourceId().equals(request.targetId())) {
+                throw new IllegalArgumentException("Conta de origem e destino não podem ser iguais");
+        }
         // Ordena os IDs para sempre bloquear na mesma ordem — evita deadlock em concorrência
         UUID firstId  = request.sourceId().compareTo(request.targetId()) < 0
                 ? request.sourceId() : request.targetId();
