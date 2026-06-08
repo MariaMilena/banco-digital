@@ -34,14 +34,18 @@ cp src/main/resources/application.properties.example src/main/resources/applicat
 Edite o `application.properties` com os dados do seu banco:
 
 ```properties
-spring.datasource.url=jdbc:postgresql://<host>/neondb?sslmode=require&channel_binding=require
-spring.datasource.username=<usuario>
-spring.datasource.password=<senha>
+# Neon.tech PostgreSQL
+spring.datasource.url=jdbc:postgresql://ep-red-bonus-aq0g4hcy-pooler.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+spring.datasource.username=neondb_owner
+spring.datasource.password=npg_s0lbzUa7CWVr
 spring.datasource.driver-class-name=org.postgresql.Driver
 
+# JPA
 spring.jpa.hibernate.ddl-auto=validate
 spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
 
+# Swagger
 springdoc.swagger-ui.path=/swagger-ui.html
 ```
 
